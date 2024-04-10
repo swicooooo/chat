@@ -1,0 +1,1 @@
+/usr/bin/g++  -g -g  -rdynamic CMakeFiles/chatServer.dir/main.cc.o  -o ../../../bin/chatServer  -lmymuduo -lpthread 

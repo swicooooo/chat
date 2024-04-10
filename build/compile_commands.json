@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/mnt/e/ubuntu/chat/build/src/server",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server  -g -g   -o CMakeFiles/chatServer.dir/main.cc.o -c /mnt/e/ubuntu/chat/src/server/main.cc",
+  "file": "/mnt/e/ubuntu/chat/src/server/main.cc"
+}
+]
