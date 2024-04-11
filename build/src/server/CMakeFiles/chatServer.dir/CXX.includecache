@@ -6,5 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/mnt/e/ubuntu/chat/src/server/main.cc
+../include/server/ChatServer.h
+mymuduo/TcpServer.h
+-
+
+../include/server/ChatService.h
+unordered_map
+-
+functional
+-
+mymuduo/TcpServer.h
+-
+json.hpp
+-
+
+/mnt/e/ubuntu/chat/src/server/ChatServer.cpp
+ChatServer.h
+/mnt/e/ubuntu/chat/src/server/ChatServer.h
+ChatService.h
+/mnt/e/ubuntu/chat/src/server/ChatService.h
+json.hpp
+-
 

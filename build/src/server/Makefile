@@ -147,6 +147,60 @@ chatServer/fast:
 	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/build
 .PHONY : chatServer/fast
 
+ChatServer.o: ChatServer.cpp.o
+
+.PHONY : ChatServer.o
+
+# target to build an object file
+ChatServer.cpp.o:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o
+.PHONY : ChatServer.cpp.o
+
+ChatServer.i: ChatServer.cpp.i
+
+.PHONY : ChatServer.i
+
+# target to preprocess a source file
+ChatServer.cpp.i:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.i
+.PHONY : ChatServer.cpp.i
+
+ChatServer.s: ChatServer.cpp.s
+
+.PHONY : ChatServer.s
+
+# target to generate assembly for a file
+ChatServer.cpp.s:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.s
+.PHONY : ChatServer.cpp.s
+
+ChatService.o: ChatService.cpp.o
+
+.PHONY : ChatService.o
+
+# target to build an object file
+ChatService.cpp.o:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o
+.PHONY : ChatService.cpp.o
+
+ChatService.i: ChatService.cpp.i
+
+.PHONY : ChatService.i
+
+# target to preprocess a source file
+ChatService.cpp.i:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatService.cpp.i
+.PHONY : ChatService.cpp.i
+
+ChatService.s: ChatService.cpp.s
+
+.PHONY : ChatService.s
+
+# target to generate assembly for a file
+ChatService.cpp.s:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatService.cpp.s
+.PHONY : ChatService.cpp.s
+
 main.o: main.cc.o
 
 .PHONY : main.o
@@ -185,6 +239,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... package"
 	@echo "... chatServer"
+	@echo "... ChatServer.o"
+	@echo "... ChatServer.i"
+	@echo "... ChatServer.s"
+	@echo "... ChatService.o"
+	@echo "... ChatService.i"
+	@echo "... ChatService.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
