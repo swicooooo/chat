@@ -201,6 +201,33 @@ ChatService.cpp.s:
 	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatService.cpp.s
 .PHONY : ChatService.cpp.s
 
+UserModel.o: UserModel.cpp.o
+
+.PHONY : UserModel.o
+
+# target to build an object file
+UserModel.cpp.o:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/UserModel.cpp.o
+.PHONY : UserModel.cpp.o
+
+UserModel.i: UserModel.cpp.i
+
+.PHONY : UserModel.i
+
+# target to preprocess a source file
+UserModel.cpp.i:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/UserModel.cpp.i
+.PHONY : UserModel.cpp.i
+
+UserModel.s: UserModel.cpp.s
+
+.PHONY : UserModel.s
+
+# target to generate assembly for a file
+UserModel.cpp.s:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/UserModel.cpp.s
+.PHONY : UserModel.cpp.s
+
 db/db.o: db/db.cpp.o
 
 .PHONY : db/db.o
@@ -272,6 +299,9 @@ help:
 	@echo "... ChatService.o"
 	@echo "... ChatService.i"
 	@echo "... ChatService.s"
+	@echo "... UserModel.o"
+	@echo "... UserModel.i"
+	@echo "... UserModel.s"
 	@echo "... db/db.o"
 	@echo "... db/db.i"
 	@echo "... db/db.s"

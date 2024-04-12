@@ -27,7 +27,23 @@ void ChatService::login(const TcpConnectionPtr &conn, nlohmann::json &js, Timest
 
 void ChatService::reg(const TcpConnectionPtr &conn, nlohmann::json &js, Timestamp timestamp)
 {
-    LOG_INFO("do login service!!!");
+    LOG_INFO("do reg service!!!");
+    User user;
+    user.name = js["name"];
+    user.pwd =  js["password"];
+
+    bool state = userModel_.insert(user);
+    nlohmann::json resp;    // 返回客户端的响应对象
+    if(state) {
+        resp["msgid"] = REG_MSG_ACK;
+        resp["errno"] = 0;  // 错误码，未出错
+        resp["id"] = user.id;
+        conn->send(resp.dump());
+    }else{
+        resp["msgid"] = REG_MSG_ACK;
+        resp["errno"] = 1;  // 错误码，出错
+        conn->send(resp.dump());
+    }
 }
 
 ChatService::ChatService()

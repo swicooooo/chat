@@ -9,7 +9,7 @@ static std::string dbname = "chat";
 
 MySQL::MySQL()
 {
-    mysql_init(conn_);
+    conn_ = mysql_init(nullptr);    // nor not mysql_init(conn_)
 }
 
 MySQL::~MySQL()

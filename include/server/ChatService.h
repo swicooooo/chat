@@ -5,6 +5,8 @@
 #include <mymuduo/TcpServer.h>
 #include <json.hpp>
 
+#include "UserModel.h"
+
 // 处理消息的事件回调类型
 using MsgHandler = std::function<void(const TcpConnectionPtr&,nlohmann::json&,Timestamp)>;
 
@@ -19,4 +21,5 @@ public:
 private:
     ChatService();
     std::unordered_map<int, MsgHandler> msgHandlers_;
+    UserModel userModel_;   // 数据操作类对象
 };
