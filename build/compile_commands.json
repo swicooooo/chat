@@ -1,17 +1,22 @@
 [
 {
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server  -g -g   -o CMakeFiles/chatServer.dir/ChatServer.cpp.o -c /mnt/e/ubuntu/chat/src/server/ChatServer.cpp",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/ChatServer.cpp.o -c /mnt/e/ubuntu/chat/src/server/ChatServer.cpp",
   "file": "/mnt/e/ubuntu/chat/src/server/ChatServer.cpp"
 },
 {
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server  -g -g   -o CMakeFiles/chatServer.dir/ChatService.cpp.o -c /mnt/e/ubuntu/chat/src/server/ChatService.cpp",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/ChatService.cpp.o -c /mnt/e/ubuntu/chat/src/server/ChatService.cpp",
   "file": "/mnt/e/ubuntu/chat/src/server/ChatService.cpp"
 },
 {
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server  -g -g   -o CMakeFiles/chatServer.dir/main.cc.o -c /mnt/e/ubuntu/chat/src/server/main.cc",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/main.cc.o -c /mnt/e/ubuntu/chat/src/server/main.cc",
   "file": "/mnt/e/ubuntu/chat/src/server/main.cc"
+},
+{
+  "directory": "/mnt/e/ubuntu/chat/build/src/server",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/db/db.cpp.o -c /mnt/e/ubuntu/chat/src/server/db/db.cpp",
+  "file": "/mnt/e/ubuntu/chat/src/server/db/db.cpp"
 }
 ]

@@ -6,5 +6,5 @@ CXX_FLAGS = -g -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server 
+CXX_INCLUDES = -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db 
 

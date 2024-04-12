@@ -9,6 +9,9 @@ src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o
  ../include/Common.h
  ../include/server/ChatService.h
  /mnt/e/ubuntu/chat/src/server/ChatService.cpp
+src/server/CMakeFiles/chatServer.dir/db/db.cpp.o
+ ../include/server/db/db.h
+ /mnt/e/ubuntu/chat/src/server/db/db.cpp
 src/server/CMakeFiles/chatServer.dir/main.cc.o
  ../include/server/ChatServer.h
  /mnt/e/ubuntu/chat/src/server/main.cc

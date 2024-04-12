@@ -6,25 +6,15 @@
 
 #IncludeRegexTransform: 
 
-../include/server/ChatServer.h
-mymuduo/TcpServer.h
+../include/server/db/db.h
+string
+-
+mysql/mysql.h
 -
 
-../include/server/ChatService.h
-unordered_map
--
-functional
--
-mymuduo/TcpServer.h
--
-json.hpp
--
-
-/mnt/e/ubuntu/chat/src/server/ChatServer.cpp
-ChatServer.h
-/mnt/e/ubuntu/chat/src/server/ChatServer.h
-ChatService.h
-/mnt/e/ubuntu/chat/src/server/ChatService.h
-json.hpp
+/mnt/e/ubuntu/chat/src/server/db/db.cpp
+db.h
+/mnt/e/ubuntu/chat/src/server/db/db.h
+mymuduo/Logger.h
 -
 

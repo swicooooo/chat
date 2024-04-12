@@ -8,6 +8,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)   # 设置可执行文件�
 # 配置头文件搜素路径
 include_directories(${PROJECT_SOURCE_DIR}/include) 
 include_directories(${PROJECT_SOURCE_DIR}/include/server) 
+include_directories(${PROJECT_SOURCE_DIR}/include/server/db) 
 # link_directories()    # 配置库文件搜索路径
 
 add_subdirectory(src)   # 指定搜索的子目录
