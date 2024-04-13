@@ -15,6 +15,7 @@ ChatServer::ChatServer(EventLoop *loop, const InetAddress &listenAddr, const std
 void ChatServer::onConnection(const TcpConnectionPtr &conn)
 {
     if(!conn->connected()) {
+        ChatService::getInstance()->closeClientException(conn);
         conn->shutdown();   // 关闭这条通信链接
     }
 }

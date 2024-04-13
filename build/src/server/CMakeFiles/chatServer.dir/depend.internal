@@ -6,12 +6,14 @@ src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o
  ../include/server/ChatService.h
  ../include/server/User.h
  ../include/server/UserModel.h
+ ../include/server/db/db.h
  /mnt/e/ubuntu/chat/src/server/ChatServer.cpp
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o
  ../include/Common.h
  ../include/server/ChatService.h
  ../include/server/User.h
  ../include/server/UserModel.h
+ ../include/server/db/db.h
  /mnt/e/ubuntu/chat/src/server/ChatService.cpp
 src/server/CMakeFiles/chatServer.dir/UserModel.cpp.o
  ../include/server/User.h
