@@ -201,6 +201,60 @@ ChatService.cpp.s:
 	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatService.cpp.s
 .PHONY : ChatService.cpp.s
 
+FriendModel.o: FriendModel.cpp.o
+
+.PHONY : FriendModel.o
+
+# target to build an object file
+FriendModel.cpp.o:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/FriendModel.cpp.o
+.PHONY : FriendModel.cpp.o
+
+FriendModel.i: FriendModel.cpp.i
+
+.PHONY : FriendModel.i
+
+# target to preprocess a source file
+FriendModel.cpp.i:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/FriendModel.cpp.i
+.PHONY : FriendModel.cpp.i
+
+FriendModel.s: FriendModel.cpp.s
+
+.PHONY : FriendModel.s
+
+# target to generate assembly for a file
+FriendModel.cpp.s:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/FriendModel.cpp.s
+.PHONY : FriendModel.cpp.s
+
+OfflineMsgModel.o: OfflineMsgModel.cpp.o
+
+.PHONY : OfflineMsgModel.o
+
+# target to build an object file
+OfflineMsgModel.cpp.o:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/OfflineMsgModel.cpp.o
+.PHONY : OfflineMsgModel.cpp.o
+
+OfflineMsgModel.i: OfflineMsgModel.cpp.i
+
+.PHONY : OfflineMsgModel.i
+
+# target to preprocess a source file
+OfflineMsgModel.cpp.i:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/OfflineMsgModel.cpp.i
+.PHONY : OfflineMsgModel.cpp.i
+
+OfflineMsgModel.s: OfflineMsgModel.cpp.s
+
+.PHONY : OfflineMsgModel.s
+
+# target to generate assembly for a file
+OfflineMsgModel.cpp.s:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/OfflineMsgModel.cpp.s
+.PHONY : OfflineMsgModel.cpp.s
+
 UserModel.o: UserModel.cpp.o
 
 .PHONY : UserModel.o
@@ -299,6 +353,12 @@ help:
 	@echo "... ChatService.o"
 	@echo "... ChatService.i"
 	@echo "... ChatService.s"
+	@echo "... FriendModel.o"
+	@echo "... FriendModel.i"
+	@echo "... FriendModel.s"
+	@echo "... OfflineMsgModel.o"
+	@echo "... OfflineMsgModel.i"
+	@echo "... OfflineMsgModel.s"
 	@echo "... UserModel.o"
 	@echo "... UserModel.i"
 	@echo "... UserModel.s"

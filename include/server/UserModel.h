@@ -11,6 +11,7 @@ public:
    bool insert(User &user);
    User query(int id);
    bool updateState(User user);
+   void resetState();   // 重置用户状态信息
 private:
    MySQL mysql_;
 };

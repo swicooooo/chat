@@ -45,6 +45,28 @@ void ChatService::login(const TcpConnectionPtr &conn, nlohmann::json &js, Timest
             resp["errno"] = 0;    
             resp["id"] = user.id;
             resp["name"] = user.name;
+
+            // 查询该用户是否有离线消息,有则发送并删除
+            auto msgs = offlineMsgModel_.query(user.id);
+            if(!msgs.empty()) {
+                resp["offlinemsg"] = msgs;
+                offlineMsgModel_.remove(user.id);   
+            }
+
+            // 查询用户好友信息并返回
+            auto friends = friendModel_.query(user.id);
+            if(!friends.empty()) {
+                std::vector<std::string> friendVec;
+                for(auto f: friends) {
+                    nlohmann::json js;
+                    js["id"] = f.id;
+                    js["name"] = f.name;
+                    js["state"] = f.state;
+                    friendVec.push_back(js.dump());
+                }
+                resp["friends"] = friendVec;
+            }
+
             conn->send(resp.dump());
         }
         
@@ -78,6 +100,27 @@ void ChatService::reg(const TcpConnectionPtr &conn, nlohmann::json &js, Timestam
     }
 }
 
+void ChatService::oneChat(const TcpConnectionPtr &conn, nlohmann::json &js, Timestamp timestamp)
+{
+    int toid = js["to"].get<int>();
+    {
+        std::lock_guard<std::mutex> lock(connMutex_);
+        auto it = userConns_.find(toid);
+        if(it != userConns_.end()) {
+            // toid在线，服务器主动推送消息给toid用户
+            it->second->send(js.dump());
+            return;
+        }
+    }
+    // toid离线，服务器存储离线消息
+    offlineMsgModel_.insert(toid, js.dump());
+}
+
+void ChatService::addFriend(const TcpConnectionPtr & conn, nlohmann::json & js, Timestamp timestamp)
+{
+    friendModel_.insert(js["userid"].get<int>(), js["friendid"].get<int>());
+}
+
 void ChatService::closeClientException(const TcpConnectionPtr &conn)
 {
     User user;
@@ -98,8 +141,17 @@ void ChatService::closeClientException(const TcpConnectionPtr &conn)
     }
 }
 
+void ChatService::reset()
+{
+    // 重置所有用户的状态
+    userModel_.resetState();
+}
+
 ChatService::ChatService()
 {
     msgHandlers_.insert({LOGIN_MSG, std::bind(&ChatService::login, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
     msgHandlers_.insert({REG_MSG, std::bind(&ChatService::reg, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
+    msgHandlers_.insert({ONE_CHAT_MSG, std::bind(&ChatService::oneChat, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
+    msgHandlers_.insert({ADD_FRIEND_MSG, std::bind(&ChatService::addFriend, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
+
 }

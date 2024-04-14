@@ -8,10 +8,6 @@
 
 ../include/Common.h
 
-../include/server/ChatServer.h
-mymuduo/TcpServer.h
--
-
 ../include/server/ChatService.h
 unordered_map
 -
@@ -25,6 +21,28 @@ json.hpp
 -
 UserModel.h
 ../include/server/UserModel.h
+OfflineMsgModel.h
+../include/server/OfflineMsgModel.h
+FriendModel.h
+../include/server/FriendModel.h
+
+../include/server/FriendModel.h
+vector
+-
+string
+-
+db.h
+../include/server/db.h
+User.h
+-
+
+../include/server/OfflineMsgModel.h
+string
+-
+vector
+-
+db.h
+../include/server/db.h
 
 ../include/server/User.h
 string
@@ -40,14 +58,6 @@ db.h
 string
 -
 mysql/mysql.h
--
-
-/mnt/e/ubuntu/chat/src/server/ChatServer.cpp
-ChatServer.h
-/mnt/e/ubuntu/chat/src/server/ChatServer.h
-ChatService.h
-/mnt/e/ubuntu/chat/src/server/ChatService.h
-json.hpp
 -
 
 /mnt/e/ubuntu/chat/src/server/ChatService.cpp
