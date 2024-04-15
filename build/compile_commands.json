@@ -16,6 +16,11 @@
 },
 {
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/GroupModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/GroupModel.cpp",
+  "file": "/mnt/e/ubuntu/chat/src/server/GroupModel.cpp"
+},
+{
+  "directory": "/mnt/e/ubuntu/chat/build/src/server",
   "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/OfflineMsgModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/OfflineMsgModel.cpp",
   "file": "/mnt/e/ubuntu/chat/src/server/OfflineMsgModel.cpp"
 },

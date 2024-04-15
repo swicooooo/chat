@@ -9,6 +9,7 @@
 #include "UserModel.h"
 #include "OfflineMsgModel.h"
 #include "FriendModel.h"
+#include "GroupModel.h"
 
 // 处理消息的事件回调类型
 using MsgHandler = std::function<void(const TcpConnectionPtr&,nlohmann::json&,Timestamp)>;
@@ -23,6 +24,9 @@ public:
     void reg(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp);      // 处理注册业务
     void oneChat(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp);  // 处理一对一业务
     void addFriend(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp);// 处理添加好友业务
+    void createGroup(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp);// 处理创建群组业务
+    void addGroup(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp); // 处理添加群组业务
+    void groupChat(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp);// 处理群组聊天业务
 
     void closeClientException(const TcpConnectionPtr& conn);// 处理客户端异常退出
     void reset();   //  服务器测试异常，业务重置方法
@@ -34,4 +38,5 @@ private:
     UserModel userModel_;   // 数据操作类对象
     OfflineMsgModel offlineMsgModel_;   // 离线消息操作类对象 
     FriendModel friendModel_;           // 好友信息操作类对象
+    GroupModel groupModel_;             // 群组信息操作类对象
 };

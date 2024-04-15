@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/e/ubuntu/chat/src/server/ChatServer.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o"
   "/mnt/e/ubuntu/chat/src/server/ChatService.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o"
   "/mnt/e/ubuntu/chat/src/server/FriendModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/FriendModel.cpp.o"
+  "/mnt/e/ubuntu/chat/src/server/GroupModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/GroupModel.cpp.o"
   "/mnt/e/ubuntu/chat/src/server/OfflineMsgModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/OfflineMsgModel.cpp.o"
   "/mnt/e/ubuntu/chat/src/server/UserModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/UserModel.cpp.o"
   "/mnt/e/ubuntu/chat/src/server/db/db.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/db/db.cpp.o"

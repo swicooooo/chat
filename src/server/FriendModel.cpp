@@ -19,7 +19,8 @@ void FriendModel::insert(int userid, int friendid)
 std::vector<User> FriendModel::query(int userid)
 {
     char sql[1024] = {0};
-    sprintf(sql, "select a.id,a.name,a.state from user a inner join friend b on b.friendid=a.id where b.userid=%d", userid);
+    sprintf(sql, "select a.id,a.name,a.state from user a inner join \
+        friend b on b.friendid=a.id where b.userid=%d", userid);
     std::vector<User> vec;
     MYSQL_RES *res = mysql_.query(sql);
     if(res != nullptr) {

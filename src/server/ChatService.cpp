@@ -58,13 +58,36 @@ void ChatService::login(const TcpConnectionPtr &conn, nlohmann::json &js, Timest
             if(!friends.empty()) {
                 std::vector<std::string> friendVec;
                 for(auto f: friends) {
-                    nlohmann::json js;
-                    js["id"] = f.id;
-                    js["name"] = f.name;
-                    js["state"] = f.state;
-                    friendVec.push_back(js.dump());
+                    nlohmann::json friendjs;
+                    friendjs["id"] = f.id;
+                    friendjs["name"] = f.name;
+                    friendjs["state"] = f.state;
+                    friendVec.push_back(friendjs.dump());
                 }
                 resp["friends"] = friendVec;
+            }
+            // 查询用户群组信息并返回
+            auto groups = groupModel_.queryGroups(user.id);
+            if(!groups.empty()) {
+                std::vector<std::string> groupVec;
+                for(auto g: groups) {
+                    nlohmann::json groupjs;
+                    groupjs["id"] = g.id;
+                    groupjs["name"] = g.name;
+                    groupjs["desc"] = g.desc;
+                    std::vector<std::string> userVec;
+                    for(auto &u: g.groupUsers) {
+                        nlohmann::json userjs;
+                        userjs["id"] = u.id;
+                        userjs["name"] = u.name;
+                        userjs["state"] = u.state;
+                        userjs["role"] = u.role;
+                        userVec.push_back(userjs.dump());
+                    }
+                    groupjs["users"] = userVec;
+                    groupVec.push_back(groupjs.dump());
+                }
+                resp["groups"] = groupVec;
             }
 
             conn->send(resp.dump());
@@ -121,6 +144,43 @@ void ChatService::addFriend(const TcpConnectionPtr & conn, nlohmann::json & js, 
     friendModel_.insert(js["userid"].get<int>(), js["friendid"].get<int>());
 }
 
+void ChatService::createGroup(const TcpConnectionPtr &conn, nlohmann::json &js, Timestamp timestamp)
+{
+    Group group;
+    group.name = js["name"];
+    group.desc = js["desc"];
+    if(groupModel_.createGroup(group)) {
+        // 创建成功，将创建者加入群组
+        groupModel_.addGroup(js["userid"].get<int>(), group.id, "creator");
+        nlohmann::json resp;
+        resp["msgid"] = CREATE_GROUP_MSG_ACK;
+        resp["errno"] = 0;  // 错误码，未出错
+        resp["msg"] = "create successful";
+        conn->send(resp.dump());
+    }
+}
+
+void ChatService::addGroup(const TcpConnectionPtr &conn, nlohmann::json &js, Timestamp timestamp)
+{
+    groupModel_.addGroup(js["userid"].get<int>(),js["groupid"].get<int>(), "normal");
+}
+
+void ChatService::groupChat(const TcpConnectionPtr &conn, nlohmann::json &js, Timestamp timestamp)
+{
+    LOG_INFO("do groupChat service!!!");
+    auto userids = groupModel_.queryGroupUserIds(js["userid"].get<int>(),js["groupid"].get<int>());
+    // 如果群组成员在线，则发生，否则放入离线消息
+    std::lock_guard<std::mutex> lock(connMutex_);
+    for(auto &userid: userids) {
+        auto it = userConns_.find(userid);
+        if(it != userConns_.end()) {
+            it->second->send(js.dump());
+        }else{
+            offlineMsgModel_.insert(userid,js.dump());
+        }
+    }
+}
+
 void ChatService::closeClientException(const TcpConnectionPtr &conn)
 {
     User user;
@@ -153,5 +213,8 @@ ChatService::ChatService()
     msgHandlers_.insert({REG_MSG, std::bind(&ChatService::reg, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
     msgHandlers_.insert({ONE_CHAT_MSG, std::bind(&ChatService::oneChat, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
     msgHandlers_.insert({ADD_FRIEND_MSG, std::bind(&ChatService::addFriend, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
+    msgHandlers_.insert({CREATE_GROUP_MSG, std::bind(&ChatService::createGroup, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
+    msgHandlers_.insert({ADD_GROUP_MSG, std::bind(&ChatService::addGroup, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
+    msgHandlers_.insert({GROUP_CHAT_MSG, std::bind(&ChatService::groupChat, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
 
 }
