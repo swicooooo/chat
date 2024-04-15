@@ -6,12 +6,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/e/ubuntu/chat/src/server/ChatServer.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o"
   "/mnt/e/ubuntu/chat/src/server/ChatService.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o"
-  "/mnt/e/ubuntu/chat/src/server/FriendModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/FriendModel.cpp.o"
-  "/mnt/e/ubuntu/chat/src/server/GroupModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/GroupModel.cpp.o"
-  "/mnt/e/ubuntu/chat/src/server/OfflineMsgModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/OfflineMsgModel.cpp.o"
-  "/mnt/e/ubuntu/chat/src/server/UserModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/UserModel.cpp.o"
   "/mnt/e/ubuntu/chat/src/server/db/db.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/db/db.cpp.o"
   "/mnt/e/ubuntu/chat/src/server/main.cc" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/main.cc.o"
+  "/mnt/e/ubuntu/chat/src/server/model/FriendModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/model/FriendModel.cpp.o"
+  "/mnt/e/ubuntu/chat/src/server/model/GroupModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/model/GroupModel.cpp.o"
+  "/mnt/e/ubuntu/chat/src/server/model/OfflineMsgModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/model/OfflineMsgModel.cpp.o"
+  "/mnt/e/ubuntu/chat/src/server/model/UserModel.cpp" "/mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir/model/UserModel.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,6 +20,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../include/server"
   "../include/server/db"
+  "../include/server/model"
   )
 
 # Targets to which this target links.

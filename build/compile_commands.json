@@ -1,42 +1,42 @@
 [
 {
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/ChatServer.cpp.o -c /mnt/e/ubuntu/chat/src/server/ChatServer.cpp",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/ChatServer.cpp.o -c /mnt/e/ubuntu/chat/src/server/ChatServer.cpp",
   "file": "/mnt/e/ubuntu/chat/src/server/ChatServer.cpp"
 },
 {
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/ChatService.cpp.o -c /mnt/e/ubuntu/chat/src/server/ChatService.cpp",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/ChatService.cpp.o -c /mnt/e/ubuntu/chat/src/server/ChatService.cpp",
   "file": "/mnt/e/ubuntu/chat/src/server/ChatService.cpp"
 },
 {
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/FriendModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/FriendModel.cpp",
-  "file": "/mnt/e/ubuntu/chat/src/server/FriendModel.cpp"
-},
-{
-  "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/GroupModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/GroupModel.cpp",
-  "file": "/mnt/e/ubuntu/chat/src/server/GroupModel.cpp"
-},
-{
-  "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/OfflineMsgModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/OfflineMsgModel.cpp",
-  "file": "/mnt/e/ubuntu/chat/src/server/OfflineMsgModel.cpp"
-},
-{
-  "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/UserModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/UserModel.cpp",
-  "file": "/mnt/e/ubuntu/chat/src/server/UserModel.cpp"
-},
-{
-  "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/main.cc.o -c /mnt/e/ubuntu/chat/src/server/main.cc",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/main.cc.o -c /mnt/e/ubuntu/chat/src/server/main.cc",
   "file": "/mnt/e/ubuntu/chat/src/server/main.cc"
 },
 {
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db  -g -g   -o CMakeFiles/chatServer.dir/db/db.cpp.o -c /mnt/e/ubuntu/chat/src/server/db/db.cpp",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/db/db.cpp.o -c /mnt/e/ubuntu/chat/src/server/db/db.cpp",
   "file": "/mnt/e/ubuntu/chat/src/server/db/db.cpp"
+},
+{
+  "directory": "/mnt/e/ubuntu/chat/build/src/server",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/model/FriendModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/model/FriendModel.cpp",
+  "file": "/mnt/e/ubuntu/chat/src/server/model/FriendModel.cpp"
+},
+{
+  "directory": "/mnt/e/ubuntu/chat/build/src/server",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/model/GroupModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/model/GroupModel.cpp",
+  "file": "/mnt/e/ubuntu/chat/src/server/model/GroupModel.cpp"
+},
+{
+  "directory": "/mnt/e/ubuntu/chat/build/src/server",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/model/OfflineMsgModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/model/OfflineMsgModel.cpp",
+  "file": "/mnt/e/ubuntu/chat/src/server/model/OfflineMsgModel.cpp"
+},
+{
+  "directory": "/mnt/e/ubuntu/chat/build/src/server",
+  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/model/UserModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/model/UserModel.cpp",
+  "file": "/mnt/e/ubuntu/chat/src/server/model/UserModel.cpp"
 }
 ]
