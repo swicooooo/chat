@@ -46,6 +46,9 @@ void ChatService::login(const TcpConnectionPtr &conn, nlohmann::json &js, Timest
             resp["id"] = user.id;
             resp["name"] = user.name;
 
+            // 向redis订阅消息
+            redis_.subscribe(user.id);
+
             // 查询该用户是否有离线消息,有则发送并删除
             auto msgs = offlineMsgModel_.query(user.id);
             if(!msgs.empty()) {
@@ -130,13 +133,20 @@ void ChatService::oneChat(const TcpConnectionPtr &conn, nlohmann::json &js, Time
         std::lock_guard<std::mutex> lock(connMutex_);
         auto it = userConns_.find(toid);
         if(it != userConns_.end()) {
-            // toid在线，服务器主动推送消息给toid用户
+            // toid在线，并且与用户在同一台服务器，服务器主动推送消息给toid用户
             it->second->send(js.dump());
             return;
         }
     }
-    // toid离线，服务器存储离线消息
-    offlineMsgModel_.insert(toid, js.dump());
+
+    // 用户与聊天用户不在一台服务器上
+    User user = userModel_.query(toid);
+    if(user.state == "online") {
+        redis_.publish(toid, js.dump());
+    }else{
+        // toid离线，服务器存储离线消息
+        offlineMsgModel_.insert(toid, js.dump());
+    }
 }
 
 void ChatService::addFriend(const TcpConnectionPtr & conn, nlohmann::json & js, Timestamp timestamp)
@@ -172,11 +182,19 @@ void ChatService::groupChat(const TcpConnectionPtr &conn, nlohmann::json &js, Ti
     // 如果群组成员在线，则发生，否则放入离线消息
     std::lock_guard<std::mutex> lock(connMutex_);
     for(auto &userid: userids) {
+        // userid在线，并且与用户在同一台服务器，服务器主动推送消息给toid用户
         auto it = userConns_.find(userid);
         if(it != userConns_.end()) {
             it->second->send(js.dump());
         }else{
-            offlineMsgModel_.insert(userid,js.dump());
+            // 用户与聊天用户不在一台服务器上
+            User user = userModel_.query(userid);
+            if(user.state == "online") {
+                redis_.publish(userid, js.dump());
+            }else{
+                // toid离线，服务器存储离线消息
+                offlineMsgModel_.insert(userid, js.dump());
+            }
         }
     }
 }
@@ -207,6 +225,21 @@ void ChatService::reset()
     userModel_.resetState();
 }
 
+void ChatService::redisSubscribeMessgaeHandler(int channel, std::string message)
+{
+    {
+        std::lock_guard<std::mutex> lock(connMutex_);
+        auto it = userConns_.find(channel);
+        if(it != userConns_.end()) {
+            // toid在线，服务器主动推送消息给toid用户, 此时两用户必在同一台服务器下
+            it->second->send(message);
+            return;
+        }
+    }
+    // toid离线，服务器存储离线消息
+    offlineMsgModel_.insert(channel, message);
+}
+
 ChatService::ChatService()
 {
     msgHandlers_.insert({LOGIN_MSG, std::bind(&ChatService::login, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
@@ -217,4 +250,7 @@ ChatService::ChatService()
     msgHandlers_.insert({ADD_GROUP_MSG, std::bind(&ChatService::addGroup, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
     msgHandlers_.insert({GROUP_CHAT_MSG, std::bind(&ChatService::groupChat, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
 
+    if(redis_.connect()) {
+        redis_.initNotifyHandler(std::bind(&ChatService::redisSubscribeMessgaeHandler,this,std::placeholders::_1,std::placeholders::_2));
+    }
 }

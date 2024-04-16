@@ -3,6 +3,7 @@
 
 src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o: ../include/server/ChatServer.h
 src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o: ../include/server/ChatService.h
+src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o: ../include/server/db/Redis.h
 src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o: ../include/server/db/db.h
 src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o: ../include/server/model/FriendModel.h
 src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o: ../include/server/model/Group.h
@@ -15,6 +16,7 @@ src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o: ../src/server/ChatServer.
 
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/Common.h
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/server/ChatService.h
+src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/server/db/Redis.h
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/server/db/db.h
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/server/model/FriendModel.h
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/server/model/Group.h
@@ -25,11 +27,15 @@ src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/server/model/
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/server/model/UserModel.h
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../src/server/ChatService.cpp
 
+src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.o: ../include/server/db/Redis.h
+src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.o: ../src/server/db/Redis.cpp
+
 src/server/CMakeFiles/chatServer.dir/db/db.cpp.o: ../include/server/db/db.h
 src/server/CMakeFiles/chatServer.dir/db/db.cpp.o: ../src/server/db/db.cpp
 
 src/server/CMakeFiles/chatServer.dir/main.cc.o: ../include/server/ChatServer.h
 src/server/CMakeFiles/chatServer.dir/main.cc.o: ../include/server/ChatService.h
+src/server/CMakeFiles/chatServer.dir/main.cc.o: ../include/server/db/Redis.h
 src/server/CMakeFiles/chatServer.dir/main.cc.o: ../include/server/db/db.h
 src/server/CMakeFiles/chatServer.dir/main.cc.o: ../include/server/model/FriendModel.h
 src/server/CMakeFiles/chatServer.dir/main.cc.o: ../include/server/model/Group.h

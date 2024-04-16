@@ -4,6 +4,7 @@
 src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o
  ../include/server/ChatServer.h
  ../include/server/ChatService.h
+ ../include/server/db/Redis.h
  ../include/server/db/db.h
  ../include/server/model/FriendModel.h
  ../include/server/model/Group.h
@@ -16,6 +17,7 @@ src/server/CMakeFiles/chatServer.dir/ChatServer.cpp.o
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o
  ../include/Common.h
  ../include/server/ChatService.h
+ ../include/server/db/Redis.h
  ../include/server/db/db.h
  ../include/server/model/FriendModel.h
  ../include/server/model/Group.h
@@ -25,12 +27,16 @@ src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o
  ../include/server/model/User.h
  ../include/server/model/UserModel.h
  /mnt/e/ubuntu/chat/src/server/ChatService.cpp
+src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.o
+ ../include/server/db/Redis.h
+ /mnt/e/ubuntu/chat/src/server/db/Redis.cpp
 src/server/CMakeFiles/chatServer.dir/db/db.cpp.o
  ../include/server/db/db.h
  /mnt/e/ubuntu/chat/src/server/db/db.cpp
 src/server/CMakeFiles/chatServer.dir/main.cc.o
  ../include/server/ChatServer.h
  ../include/server/ChatService.h
+ ../include/server/db/Redis.h
  ../include/server/db/db.h
  ../include/server/model/FriendModel.h
  ../include/server/model/Group.h

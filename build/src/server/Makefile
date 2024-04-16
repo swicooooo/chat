@@ -201,6 +201,33 @@ ChatService.cpp.s:
 	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/ChatService.cpp.s
 .PHONY : ChatService.cpp.s
 
+db/Redis.o: db/Redis.cpp.o
+
+.PHONY : db/Redis.o
+
+# target to build an object file
+db/Redis.cpp.o:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.o
+.PHONY : db/Redis.cpp.o
+
+db/Redis.i: db/Redis.cpp.i
+
+.PHONY : db/Redis.i
+
+# target to preprocess a source file
+db/Redis.cpp.i:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.i
+.PHONY : db/Redis.cpp.i
+
+db/Redis.s: db/Redis.cpp.s
+
+.PHONY : db/Redis.s
+
+# target to generate assembly for a file
+db/Redis.cpp.s:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.s
+.PHONY : db/Redis.cpp.s
+
 db/db.o: db/db.cpp.o
 
 .PHONY : db/db.o
@@ -380,6 +407,9 @@ help:
 	@echo "... ChatService.o"
 	@echo "... ChatService.i"
 	@echo "... ChatService.s"
+	@echo "... db/Redis.o"
+	@echo "... db/Redis.i"
+	@echo "... db/Redis.s"
 	@echo "... db/db.o"
 	@echo "... db/db.i"
 	@echo "... db/db.s"
