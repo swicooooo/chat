@@ -7,4 +7,6 @@ addgroup: {"msgid":9,"userid":13,"groupid":1}
 groupchat: {"msgid":10,"userid":13,"groupid":1,"msg":"group chat"}
 
 
-{"msgid":1,"id":19,"password":"123456"}
+{"msgid":1,"id":15,"password":"666666"}
+
+尽量用json直接测试， 本例中的客户端会在一对一聊天中导致乱码，

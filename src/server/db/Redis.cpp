@@ -39,7 +39,8 @@ bool Redis::connect()
 
 bool Redis::publish(int channel, std::string msg)
 {
-    redisReply* reply = (redisReply*)redisCommand(publishContext_,"publish %d %s", channel,msg.c_str());
+    // 在redisCommand中不能"publish %d %s", channel,msg.c_str(), 会导致乱码
+    redisReply* reply = (redisReply*)redisCommand(publishContext_,"publish %d %s", channel,msg);
     if(reply == nullptr) {
         LOG_ERROR("%s:%d: redis publish error",__FILE__,__LINE__);
         return false;
@@ -91,9 +92,10 @@ void Redis::observerMessage()
     redisReply *reply = nullptr;
     while(REDIS_OK == redisGetReply(subscribeContext_,(void**)&reply)) {
         // reply里面返回的数据有三个 messgae,channel,实际消息,有消息则调用通知回调
-        if(reply!=nullptr && reply->element[1]!=nullptr && reply->element[2]!=nullptr) {
+        if(reply!=nullptr && reply->element[2]!=nullptr && reply->element[2]->str!=nullptr) {
             notifyHandler_(atoi(reply->element[1]->str),reply->element[2]->str);
         }
+        freeReplyObject(reply);
     }
 }
 

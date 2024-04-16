@@ -41,13 +41,13 @@ void ChatService::login(const TcpConnectionPtr &conn, nlohmann::json &js, Timest
             user.state = "online";
             userModel_.updateState(user);
 
+            // 向redis订阅消息
+            redis_.subscribe(user.id);
+
             resp["msgid"] = LOGIN_MSG_ACK;
             resp["errno"] = 0;    
             resp["id"] = user.id;
             resp["name"] = user.name;
-
-            // 向redis订阅消息
-            redis_.subscribe(user.id);
 
             // 查询该用户是否有离线消息,有则发送并删除
             auto msgs = offlineMsgModel_.query(user.id);
@@ -227,15 +227,15 @@ void ChatService::reset()
 
 void ChatService::redisSubscribeMessgaeHandler(int channel, std::string message)
 {
-    {
-        std::lock_guard<std::mutex> lock(connMutex_);
-        auto it = userConns_.find(channel);
-        if(it != userConns_.end()) {
-            // toid在线，服务器主动推送消息给toid用户, 此时两用户必在同一台服务器下
-            it->second->send(message);
-            return;
-        }
+
+    std::lock_guard<std::mutex> lock(connMutex_);
+    auto it = userConns_.find(channel);
+    if(it != userConns_.end()) {
+        // toid在线，服务器主动推送消息给toid用户, 此时两用户必在同一台服务器下
+        it->second->send(message);
+        return;
     }
+    
     // toid离线，服务器存储离线消息
     offlineMsgModel_.insert(channel, message);
 }

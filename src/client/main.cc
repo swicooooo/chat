@@ -62,7 +62,7 @@ unordered_map<string, string> command_map = {
     {"help", "显示所有支持的命令，格式help"},
     {"chat", "一对一聊天，格式chat:friendid:message"},
     {"addfriend", "添加好友，格式addfriend:friendid"},
-    {"creategroup", "创建群组，格式creategroup:groupname:groupdesc"},
+    {"creategroup", "创建群组，格式creategroup:name:desc"},
     {"addgroup", "加入群组，格式addgroup:groupid"},
     {"groupchat", "群聊，格式groupchat:groupid:message"},
     {"loginout", "注销，格式loginout"}};
@@ -204,8 +204,8 @@ int main(int argc, char **argv)
                                 json group_js = json::parse(str);
                                 Group group;
                                 group.id = group_js["id"].get<int>();
-                                group.name = group_js["groupname"];
-                                group.desc = group_js["groupdesc"];
+                                group.name = group_js["name"];
+                                group.desc = group_js["desc"];
 
                                 vector<string> vec2 = group_js["users"];
                                 for (string &user_str : vec2)
@@ -468,7 +468,7 @@ void AddFriend(int clientfd, string str)
 
     json js;
     js["msgid"] = ADD_FRIEND_MSG;
-    js["id"] = g_current_user.id;
+    js["userid"] = g_current_user.id;
     js["friendid"] = friend_id;
 
     string request = js.dump();
@@ -496,8 +496,8 @@ void CreateGroup(int clientfd, string str)
     json js;
     js["msgid"] = CREATE_GROUP_MSG;
     js["id"] = g_current_user.id;
-    js["groupname"] = group_name;
-    js["groupdesc"] = group_desc;
+    js["name"] = group_name;
+    js["desc"] = group_desc;
 
     string request = js.dump();
 
