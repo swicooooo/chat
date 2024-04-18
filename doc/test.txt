@@ -1,6 +1,6 @@
-login: {"msgid":1,"id":15,"password":"666666"}
+login: {"msgid":1,"id":13,"password":"123456"}
 reg: {"msgid":3,"name":"zhang san","password":"123456"}
-oneChat: {"msgid":5,"id":13,"from":"zhang san","to":15,"msg":"hello"}
+oneChat: {"msgid":5,"id":13,"from":"zhangsan","to":15,"msg":"hello"}
 addFriend: {"msgid":6,"userid":13,"friendid":15}
 creategroup: {"msgid":7,"userid":13,"name":"g2","desc":"create group"}
 addgroup: {"msgid":9,"userid":13,"groupid":1}

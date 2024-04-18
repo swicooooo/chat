@@ -72,39 +72,18 @@ clean: src/clean
 
 # Recursive "all" directory target.
 src/all: src/server/all
-src/all: src/client/all
 
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
 src/preinstall: src/server/preinstall
-src/preinstall: src/client/preinstall
 
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
 src/clean: src/server/clean
-src/clean: src/client/clean
 
 .PHONY : src/clean
-
-#=============================================================================
-# Directory level rules for directory src/client
-
-# Recursive "all" directory target.
-src/client/all: src/client/CMakeFiles/chatClient.dir/all
-
-.PHONY : src/client/all
-
-# Recursive "preinstall" directory target.
-src/client/preinstall:
-
-.PHONY : src/client/preinstall
-
-# Recursive "clean" directory target.
-src/client/clean: src/client/CMakeFiles/chatClient.dir/clean
-
-.PHONY : src/client/clean
 
 #=============================================================================
 # Directory level rules for directory src/server
@@ -131,7 +110,7 @@ src/server/clean: src/server/CMakeFiles/chatServer.dir/clean
 src/server/CMakeFiles/chatServer.dir/all:
 	$(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/depend
 	$(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/e/ubuntu/chat/build/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12 "Built target chatServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/e/ubuntu/chat/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target chatServer"
 .PHONY : src/server/CMakeFiles/chatServer.dir/all
 
 # Build rule for subdir invocation for target.
@@ -150,33 +129,6 @@ chatServer: src/server/CMakeFiles/chatServer.dir/rule
 src/server/CMakeFiles/chatServer.dir/clean:
 	$(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/clean
 .PHONY : src/server/CMakeFiles/chatServer.dir/clean
-
-#=============================================================================
-# Target rules for target src/client/CMakeFiles/chatClient.dir
-
-# All Build rule for target.
-src/client/CMakeFiles/chatClient.dir/all:
-	$(MAKE) -f src/client/CMakeFiles/chatClient.dir/build.make src/client/CMakeFiles/chatClient.dir/depend
-	$(MAKE) -f src/client/CMakeFiles/chatClient.dir/build.make src/client/CMakeFiles/chatClient.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/e/ubuntu/chat/build/CMakeFiles --progress-num=1,2 "Built target chatClient"
-.PHONY : src/client/CMakeFiles/chatClient.dir/all
-
-# Build rule for subdir invocation for target.
-src/client/CMakeFiles/chatClient.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/ubuntu/chat/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 src/client/CMakeFiles/chatClient.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/ubuntu/chat/build/CMakeFiles 0
-.PHONY : src/client/CMakeFiles/chatClient.dir/rule
-
-# Convenience name for target.
-chatClient: src/client/CMakeFiles/chatClient.dir/rule
-
-.PHONY : chatClient
-
-# clean rule for target.
-src/client/CMakeFiles/chatClient.dir/clean:
-	$(MAKE) -f src/client/CMakeFiles/chatClient.dir/build.make src/client/CMakeFiles/chatClient.dir/clean
-.PHONY : src/client/CMakeFiles/chatClient.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

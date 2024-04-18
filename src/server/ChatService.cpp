@@ -143,10 +143,10 @@ void ChatService::oneChat(const TcpConnectionPtr &conn, nlohmann::json &js, Time
     User user = userModel_.query(toid);
     if(user.state == "online") {
         redis_.publish(toid, js.dump());
-    }else{
-        // toid离线，服务器存储离线消息
-        offlineMsgModel_.insert(toid, js.dump());
+        return;
     }
+    // toid离线，服务器存储离线消息
+    offlineMsgModel_.insert(toid, js.dump());
 }
 
 void ChatService::addFriend(const TcpConnectionPtr & conn, nlohmann::json & js, Timestamp timestamp)
@@ -213,6 +213,8 @@ void ChatService::closeClientException(const TcpConnectionPtr &conn)
                 break;
         }
     }
+
+    redis_.unsubscribe(user.id);
     if(user.id != -1) {
         user.state = "offline"; // 设置为offline
         userModel_.updateState(user);
@@ -232,6 +234,7 @@ void ChatService::redisSubscribeMessgaeHandler(int channel, std::string message)
     auto it = userConns_.find(channel);
     if(it != userConns_.end()) {
         // toid在线，服务器主动推送消息给toid用户, 此时两用户必在同一台服务器下
+        std::printf("-------------------redisSubscribeMessgaeHandler:  %s", message.c_str());
         it->second->send(message);
         return;
     }

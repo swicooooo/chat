@@ -6,9 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/server/ChatServer.h
-mymuduo/TcpServer.h
--
+../include/Common.h
 
 ../include/server/ChatService.h
 unordered_map
@@ -94,13 +92,11 @@ User.h
 db.h
 ../include/server/model/db.h
 
-/mnt/e/ubuntu/chat/src/server/main.cc
-ChatServer.h
-/mnt/e/ubuntu/chat/src/server/ChatServer.h
-signal.h
-/mnt/e/ubuntu/chat/src/server/signal.h
+/mnt/e/ubuntu/chat/src/server/ChatService.cpp
 ChatService.h
 /mnt/e/ubuntu/chat/src/server/ChatService.h
-Redis.h
-/mnt/e/ubuntu/chat/src/server/Redis.h
+Common.h
+/mnt/e/ubuntu/chat/src/server/Common.h
+mymuduo/Logger.h
+-
 

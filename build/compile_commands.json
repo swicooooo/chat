@@ -43,10 +43,5 @@
   "directory": "/mnt/e/ubuntu/chat/build/src/server",
   "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatServer.dir/model/UserModel.cpp.o -c /mnt/e/ubuntu/chat/src/server/model/UserModel.cpp",
   "file": "/mnt/e/ubuntu/chat/src/server/model/UserModel.cpp"
-},
-{
-  "directory": "/mnt/e/ubuntu/chat/build/src/client",
-  "command": "/usr/bin/g++   -I/mnt/e/ubuntu/chat/include -I/mnt/e/ubuntu/chat/include/server -I/mnt/e/ubuntu/chat/include/server/db -I/mnt/e/ubuntu/chat/include/server/model  -g -g   -o CMakeFiles/chatClient.dir/main.cc.o -c /mnt/e/ubuntu/chat/src/client/main.cc",
-  "file": "/mnt/e/ubuntu/chat/src/client/main.cc"
 }
 ]

@@ -63,11 +63,12 @@ void Redis::close()
 bool Redis::publish(int channel, std::string msg)
 {
     // 在redisCommand中不能"publish %d %s", channel,msg.c_str(), 会导致乱码
-    redisReply* reply = (redisReply*)redisCommand(publishContext_,"publish %d %s", channel,msg);
+    redisReply* reply = (redisReply*)redisCommand(publishContext_,"publish %d %s", channel,msg.c_str());
     if(reply == nullptr) {
         LOG_ERROR("%s:%d: redis publish error",__FILE__,__LINE__);
         return false;
     }
+    std::printf("-------------------publish:  %s", msg.c_str());
     freeReplyObject(reply);
     return true;
 }

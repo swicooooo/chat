@@ -83,16 +83,6 @@ unordered_map<string, function<void(int, string)>> command_handler_map = {
 //集成登录、注册功能
 int main(int argc, char **argv)
 {
-    if (argc < 3)
-    {
-        cerr << "command invaild example: ./ExeNAME  IpAddress  port" << endl;
-        exit(-1);
-    }
-
-    //解析IP地址和端口号
-    char *ip = argv[1];
-    uint16_t port = atoi(argv[2]);
-
     //创建socket
     int clientfd = socket(AF_INET, SOCK_STREAM, 0);
     if (clientfd == -1)
@@ -106,8 +96,8 @@ int main(int argc, char **argv)
     memset(&server, 0, sizeof(sockaddr_in));
 
     server.sin_family = AF_INET;
-    server.sin_port = htons(port);
-    server.sin_addr.s_addr = inet_addr(ip);
+    server.sin_port = htons(8000);
+    server.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     //server与clientfd连接
     if (-1 == connect(clientfd, (sockaddr *)&server, sizeof(sockaddr_in)))
@@ -357,7 +347,6 @@ void ReadTaskHandler(int client_fd)
             close(client_fd);
             exit(-1);
         }
-
         json js = json::parse(buffer);
         //一对一聊天
         if (js["msgid"].get<int>() == ONE_CHAT_MSG)
@@ -453,6 +442,8 @@ void Chat(int clientfd, string str)
     js["time"] = GetCurrentTime();
 
     string request = js.dump();
+
+    std::printf("------------%s",request);
 
     int len = send(clientfd, request.c_str(), strlen(request.c_str()) + 1, 0);
     if (len == -1)
