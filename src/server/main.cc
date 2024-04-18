@@ -2,6 +2,8 @@
 #include "signal.h"
 #include "ChatService.h"
 
+#include "Redis.h"
+
 // 服务器ctrl+c挂掉后，处理user的状态信息
 void resetHandler(int)
 {
@@ -33,4 +35,7 @@ int main(int argc, char **argv)
     ChatServer server(&loop, listenAddr, "main");
     server.start();
     loop.loop();
+
 }
+
+ 

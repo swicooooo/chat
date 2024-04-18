@@ -250,7 +250,7 @@ ChatService::ChatService()
     msgHandlers_.insert({ADD_GROUP_MSG, std::bind(&ChatService::addGroup, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
     msgHandlers_.insert({GROUP_CHAT_MSG, std::bind(&ChatService::groupChat, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
 
-    if(redis_.connect()) {
+    if(redis_.connect() && redis_.auth("0")) {
         redis_.initNotifyHandler(std::bind(&ChatService::redisSubscribeMessgaeHandler,this,std::placeholders::_1,std::placeholders::_2));
     }
 }

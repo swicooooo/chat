@@ -3,18 +3,8 @@
 #include <mymuduo/Logger.h>
 #include <thread>
 
-Redis::Redis(): subscribeContext_(nullptr), publishContext_(nullptr)
+Redis::Redis(): subscribeContext_(nullptr), publishContext_(nullptr),cacheContext_(nullptr)
 {}
-
-Redis::~Redis()
-{
-    if(subscribeContext_ != nullptr) {
-        redisFree(subscribeContext_);
-    }
-    if(publishContext_ != nullptr) {
-        redisFree(publishContext_);
-    }
-}
 
 bool Redis::connect()
 {
@@ -28,6 +18,11 @@ bool Redis::connect()
         LOG_ERROR("%s:%d: redis connect error",__FILE__,__LINE__);
         return false;
     }   
+    cacheContext_ = redisConnect("127.0.0.1", 6379);
+    if(publishContext_ == nullptr) {
+        LOG_ERROR("%s:%d: redis connect error",__FILE__,__LINE__);
+        return false;
+    }  
 
     // 开辟独立线程，作观察者进行消息通知
     std::thread([&](){
@@ -35,6 +30,34 @@ bool Redis::connect()
     }).detach();
 
     return true;
+}
+
+bool Redis::auth(const std::string &password)
+{
+    redisReply* cacheConAuth = (redisReply*)redisCommand(cacheContext_,"auth %s",password.c_str());
+    redisReply* subscribeAuth = (redisReply*)redisCommand(subscribeContext_,"auth %s",password.c_str());
+    redisReply* publishAuth = (redisReply*)redisCommand(publishContext_,"auth %s",password.c_str());
+    if(cacheConAuth->type==REDIS_REPLY_ERROR || subscribeAuth->type==REDIS_REPLY_ERROR || publishAuth->type==REDIS_REPLY_ERROR ) {
+        LOG_ERROR("%s:%d: redis auth error",__FILE__,__LINE__);
+        return false;
+    }
+    freeReplyObject(cacheConAuth);
+    freeReplyObject(subscribeAuth);
+    freeReplyObject(publishAuth);
+    return true;
+}
+
+void Redis::close()
+{
+    if(subscribeContext_ != nullptr) {
+        redisFree(subscribeContext_);
+    }
+    if(publishContext_ != nullptr) {
+        redisFree(publishContext_);
+    }
+    if(cacheContext_ != nullptr) {
+        redisFree(cacheContext_);
+    }
 }
 
 bool Redis::publish(int channel, std::string msg)
@@ -102,4 +125,49 @@ void Redis::observerMessage()
 void Redis::initNotifyHandler(redisHandler notifyHandler)
 {
     notifyHandler_ = notifyHandler;
+}
+
+bool Redis::get(const std::string &key, std::string &value)
+{
+    redisReply* reply = (redisReply*)redisCommand(cacheContext_,"get %s",key.c_str());
+     if(reply==nullptr || reply->type!=REDIS_REPLY_STRING) {
+        LOG_ERROR("%s:%d: redis get error",__FILE__,__LINE__);
+        return false;
+    }
+    value = reply->str;
+    freeReplyObject(reply);
+    return true;
+}
+
+bool Redis::set(const std::string &key, const std::string &value)
+{
+    redisReply* reply = (redisReply*)redisCommand(cacheContext_,"set %s %s",key.c_str(),value.c_str());
+     if(reply==nullptr || reply->type!=REDIS_REPLY_STATUS) {
+        LOG_ERROR("%s:%d: redis set error",__FILE__,__LINE__);
+        return false;
+    }
+    freeReplyObject(reply);
+    return true;
+}
+
+bool Redis::del(const std::string &key)
+{
+    redisReply* reply = (redisReply*)redisCommand(cacheContext_,"del %s",key.c_str());
+     if(reply==nullptr || reply->type!=REDIS_REPLY_INTEGER) {
+        LOG_ERROR("%s:%d: redis del error",__FILE__,__LINE__);
+        return false;
+    }
+    freeReplyObject(reply);
+    return true;
+}
+
+bool Redis::existsKey(const std::string &key)
+{
+    redisReply* reply = (redisReply*)redisCommand(cacheContext_,"exists %s",key.c_str());
+     if(reply==nullptr || reply->type!=REDIS_REPLY_INTEGER) {
+        LOG_ERROR("%s:%d: redis existsKey error",__FILE__,__LINE__);
+        return false;
+    }
+    freeReplyObject(reply);
+    return true;
 }
