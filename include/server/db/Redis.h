@@ -13,11 +13,17 @@ public:
     ~Redis();
 
     bool connect();
+    bool auth(const std::string &password);
+
+    /// 发布订阅--消息队列
     bool publish(int channel, std::string msg);     // 发布
     bool subscribe(int channel);                    // 订阅
     bool unsubscribe(int channel);                  // 取消订阅
     void observerMessage();                         // 独立线程中接收订阅通道的消息
     void initNotifyHandler(redisHandler handler);    // 初始化通知处理器
+
+    /// 缓存服务
+
 
 private:
     redisContext *subscribeContext_;    // 负责subscribe消息
