@@ -206,6 +206,33 @@ db/Redis.cpp.s:
 	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.s
 .PHONY : db/Redis.cpp.s
 
+db/RedisConnPool.o: db/RedisConnPool.cpp.o
+
+.PHONY : db/RedisConnPool.o
+
+# target to build an object file
+db/RedisConnPool.cpp.o:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/db/RedisConnPool.cpp.o
+.PHONY : db/RedisConnPool.cpp.o
+
+db/RedisConnPool.i: db/RedisConnPool.cpp.i
+
+.PHONY : db/RedisConnPool.i
+
+# target to preprocess a source file
+db/RedisConnPool.cpp.i:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/db/RedisConnPool.cpp.i
+.PHONY : db/RedisConnPool.cpp.i
+
+db/RedisConnPool.s: db/RedisConnPool.cpp.s
+
+.PHONY : db/RedisConnPool.s
+
+# target to generate assembly for a file
+db/RedisConnPool.cpp.s:
+	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f src/server/CMakeFiles/chatServer.dir/build.make src/server/CMakeFiles/chatServer.dir/db/RedisConnPool.cpp.s
+.PHONY : db/RedisConnPool.cpp.s
+
 db/db.o: db/db.cpp.o
 
 .PHONY : db/db.o
@@ -386,6 +413,9 @@ help:
 	@echo "... db/Redis.o"
 	@echo "... db/Redis.i"
 	@echo "... db/Redis.s"
+	@echo "... db/RedisConnPool.o"
+	@echo "... db/RedisConnPool.i"
+	@echo "... db/RedisConnPool.s"
 	@echo "... db/db.o"
 	@echo "... db/db.i"
 	@echo "... db/db.s"

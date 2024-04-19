@@ -13,3 +13,4 @@ include_directories(${PROJECT_SOURCE_DIR}/include/server/model)
 # link_directories()    # 配置库文件搜索路径
 
 add_subdirectory(src)   # 指定搜索的子目录
+add_subdirectory(test)

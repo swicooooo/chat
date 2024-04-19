@@ -28,7 +28,11 @@ src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../include/server/model/
 src/server/CMakeFiles/chatServer.dir/ChatService.cpp.o: ../src/server/ChatService.cpp
 
 src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.o: ../include/server/db/Redis.h
+src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.o: ../include/server/db/RedisConnPool.h
 src/server/CMakeFiles/chatServer.dir/db/Redis.cpp.o: ../src/server/db/Redis.cpp
+
+src/server/CMakeFiles/chatServer.dir/db/RedisConnPool.cpp.o: ../include/server/db/RedisConnPool.h
+src/server/CMakeFiles/chatServer.dir/db/RedisConnPool.cpp.o: ../src/server/db/RedisConnPool.cpp
 
 src/server/CMakeFiles/chatServer.dir/db/db.cpp.o: ../include/server/db/db.h
 src/server/CMakeFiles/chatServer.dir/db/db.cpp.o: ../src/server/db/db.cpp

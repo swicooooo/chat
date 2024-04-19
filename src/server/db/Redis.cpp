@@ -1,24 +1,32 @@
 #include "Redis.h"
+#include "RedisConnPool.h"
 
 #include <mymuduo/Logger.h>
 #include <thread>
 
 Redis::Redis(): subscribeContext_(nullptr), publishContext_(nullptr),cacheContext_(nullptr)
-{}
+{
+    RedisConnPool::init(3,"127.0.0.1",6379,"0");    // 初始化参数
+}
+
+Redis::~Redis()
+{
+    close();
+}
 
 bool Redis::connect()
 {
-    subscribeContext_ = redisConnect("127.0.0.1", 6379);
+    subscribeContext_ = RedisConnPool::instance()->getConnection(); // 获取连接
     if(subscribeContext_ == nullptr) {
         LOG_ERROR("%s:%d: redis connect error",__FILE__,__LINE__);
         return false;
     }  
-    publishContext_ = redisConnect("127.0.0.1", 6379);
+    publishContext_ = RedisConnPool::instance()->getConnection();   // 获取连接
     if(publishContext_ == nullptr) {
         LOG_ERROR("%s:%d: redis connect error",__FILE__,__LINE__);
         return false;
     }   
-    cacheContext_ = redisConnect("127.0.0.1", 6379);
+    cacheContext_ = RedisConnPool::instance()->getConnection();     // 获取连接
     if(publishContext_ == nullptr) {
         LOG_ERROR("%s:%d: redis connect error",__FILE__,__LINE__);
         return false;
@@ -32,32 +40,11 @@ bool Redis::connect()
     return true;
 }
 
-bool Redis::auth(const std::string &password)
-{
-    redisReply* cacheConAuth = (redisReply*)redisCommand(cacheContext_,"auth %s",password.c_str());
-    redisReply* subscribeAuth = (redisReply*)redisCommand(subscribeContext_,"auth %s",password.c_str());
-    redisReply* publishAuth = (redisReply*)redisCommand(publishContext_,"auth %s",password.c_str());
-    if(cacheConAuth->type==REDIS_REPLY_ERROR || subscribeAuth->type==REDIS_REPLY_ERROR || publishAuth->type==REDIS_REPLY_ERROR ) {
-        LOG_ERROR("%s:%d: redis auth error",__FILE__,__LINE__);
-        return false;
-    }
-    freeReplyObject(cacheConAuth);
-    freeReplyObject(subscribeAuth);
-    freeReplyObject(publishAuth);
-    return true;
-}
-
 void Redis::close()
 {
-    if(subscribeContext_ != nullptr) {
-        redisFree(subscribeContext_);
-    }
-    if(publishContext_ != nullptr) {
-        redisFree(publishContext_);
-    }
-    if(cacheContext_ != nullptr) {
-        redisFree(cacheContext_);
-    }
+    RedisConnPool::instance()->returnConnection(subscribeContext_);
+    RedisConnPool::instance()->returnConnection(publishContext_);
+    RedisConnPool::instance()->returnConnection(cacheContext_);
 }
 
 bool Redis::publish(int channel, std::string msg)

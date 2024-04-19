@@ -10,9 +10,9 @@ class Redis
 public:
     using redisHandler = std::function<void(int channel,std::string msg)>;
     Redis();
+    ~Redis();
 
     bool connect();
-    bool auth(const std::string &password);         // 验证
     void close();
 
     /// 发布订阅--消息队列

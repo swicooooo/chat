@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/server/db/Redis.h
+string
+-
+functional
+-
+hiredis/hiredis.h
+-
+
+../include/server/db/RedisConnPool.h
+atomic
+-
+mutex
+-
+condition_variable
+-
+queue
+-
+hiredis/hiredis.h
+-
+
+/mnt/e/ubuntu/chat/src/server/db/Redis.cpp
+Redis.h
+/mnt/e/ubuntu/chat/src/server/db/Redis.h
+RedisConnPool.h
+/mnt/e/ubuntu/chat/src/server/db/RedisConnPool.h
+mymuduo/Logger.h
+-
+thread
+-
+

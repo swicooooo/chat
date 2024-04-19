@@ -5,3 +5,6 @@
 /mnt/e/ubuntu/chat/build/src/server/CMakeFiles/edit_cache.dir
 /mnt/e/ubuntu/chat/build/src/server/CMakeFiles/rebuild_cache.dir
 /mnt/e/ubuntu/chat/build/src/server/CMakeFiles/chatServer.dir
+/mnt/e/ubuntu/chat/build/test/CMakeFiles/rebuild_cache.dir
+/mnt/e/ubuntu/chat/build/test/CMakeFiles/edit_cache.dir
+/mnt/e/ubuntu/chat/build/test/CMakeFiles/test.dir
