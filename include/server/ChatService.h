@@ -28,6 +28,7 @@ public:
     void createGroup(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp);// 处理创建群组业务
     void addGroup(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp); // 处理添加群组业务
     void groupChat(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp);// 处理群组聊天业务
+    void logout(const TcpConnectionPtr& conn,nlohmann::json &js,Timestamp timestamp);   // 处理注销业务
 
     void closeClientException(const TcpConnectionPtr& conn);// 处理客户端异常退出
     void reset();   //  服务器测试异常，业务重置方法

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/e/ubuntu/chat
+CMAKE_SOURCE_DIR = /mnt/e/chat
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/e/ubuntu/chat/build
+CMAKE_BINARY_DIR = /mnt/e/chat/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/e/ubuntu/chat/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/ubuntu/chat/build/CMakeFiles /mnt/e/ubuntu/chat/build/test/CMakeFiles/progress.marks
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/ubuntu/chat/build/CMakeFiles 0
+	cd /mnt/e/chat/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/chat/build/CMakeFiles /mnt/e/chat/build/test/CMakeFiles/progress.marks
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/chat/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/e/ubuntu/chat/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/e/chat/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 test/CMakeFiles/test.dir/rule:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test.dir/rule
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test.dir/rule
 .PHONY : test/CMakeFiles/test.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ test: test/CMakeFiles/test.dir/rule
 
 # fast build rule for target.
 test/fast:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/build
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/build
 .PHONY : test/fast
 
 __/src/server/db/Redis.o: __/src/server/db/Redis.cpp.o
@@ -131,7 +131,7 @@ __/src/server/db/Redis.o: __/src/server/db/Redis.cpp.o
 
 # target to build an object file
 __/src/server/db/Redis.cpp.o:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o
 .PHONY : __/src/server/db/Redis.cpp.o
 
 __/src/server/db/Redis.i: __/src/server/db/Redis.cpp.i
@@ -140,7 +140,7 @@ __/src/server/db/Redis.i: __/src/server/db/Redis.cpp.i
 
 # target to preprocess a source file
 __/src/server/db/Redis.cpp.i:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.i
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.i
 .PHONY : __/src/server/db/Redis.cpp.i
 
 __/src/server/db/Redis.s: __/src/server/db/Redis.cpp.s
@@ -149,7 +149,7 @@ __/src/server/db/Redis.s: __/src/server/db/Redis.cpp.s
 
 # target to generate assembly for a file
 __/src/server/db/Redis.cpp.s:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.s
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.s
 .PHONY : __/src/server/db/Redis.cpp.s
 
 __/src/server/db/RedisConnPool.o: __/src/server/db/RedisConnPool.cpp.o
@@ -158,7 +158,7 @@ __/src/server/db/RedisConnPool.o: __/src/server/db/RedisConnPool.cpp.o
 
 # target to build an object file
 __/src/server/db/RedisConnPool.cpp.o:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o
 .PHONY : __/src/server/db/RedisConnPool.cpp.o
 
 __/src/server/db/RedisConnPool.i: __/src/server/db/RedisConnPool.cpp.i
@@ -167,7 +167,7 @@ __/src/server/db/RedisConnPool.i: __/src/server/db/RedisConnPool.cpp.i
 
 # target to preprocess a source file
 __/src/server/db/RedisConnPool.cpp.i:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.i
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.i
 .PHONY : __/src/server/db/RedisConnPool.cpp.i
 
 __/src/server/db/RedisConnPool.s: __/src/server/db/RedisConnPool.cpp.s
@@ -176,7 +176,7 @@ __/src/server/db/RedisConnPool.s: __/src/server/db/RedisConnPool.cpp.s
 
 # target to generate assembly for a file
 __/src/server/db/RedisConnPool.cpp.s:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.s
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.s
 .PHONY : __/src/server/db/RedisConnPool.cpp.s
 
 __/src/server/db/db.o: __/src/server/db/db.cpp.o
@@ -185,7 +185,7 @@ __/src/server/db/db.o: __/src/server/db/db.cpp.o
 
 # target to build an object file
 __/src/server/db/db.cpp.o:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o
 .PHONY : __/src/server/db/db.cpp.o
 
 __/src/server/db/db.i: __/src/server/db/db.cpp.i
@@ -194,7 +194,7 @@ __/src/server/db/db.i: __/src/server/db/db.cpp.i
 
 # target to preprocess a source file
 __/src/server/db/db.cpp.i:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/db.cpp.i
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/db.cpp.i
 .PHONY : __/src/server/db/db.cpp.i
 
 __/src/server/db/db.s: __/src/server/db/db.cpp.s
@@ -203,7 +203,7 @@ __/src/server/db/db.s: __/src/server/db/db.cpp.s
 
 # target to generate assembly for a file
 __/src/server/db/db.cpp.s:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/db.cpp.s
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/__/src/server/db/db.cpp.s
 .PHONY : __/src/server/db/db.cpp.s
 
 test.o: test.cc.o
@@ -212,7 +212,7 @@ test.o: test.cc.o
 
 # target to build an object file
 test.cc.o:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/test.cc.o
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/test.cc.o
 .PHONY : test.cc.o
 
 test.i: test.cc.i
@@ -221,7 +221,7 @@ test.i: test.cc.i
 
 # target to preprocess a source file
 test.cc.i:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/test.cc.i
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/test.cc.i
 .PHONY : test.cc.i
 
 test.s: test.cc.s
@@ -230,7 +230,7 @@ test.s: test.cc.s
 
 # target to generate assembly for a file
 test.cc.s:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/test.cc.s
+	cd /mnt/e/chat/build && $(MAKE) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/test.cc.s
 .PHONY : test.cc.s
 
 # Help Target
@@ -265,6 +265,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/e/ubuntu/chat/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/e/chat/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

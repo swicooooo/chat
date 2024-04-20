@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/e/ubuntu/chat
+CMAKE_SOURCE_DIR = /mnt/e/chat
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/e/ubuntu/chat/build
+CMAKE_BINARY_DIR = /mnt/e/chat/build
 
 # Include any dependencies generated for this target.
 include test/CMakeFiles/test.dir/depend.make
@@ -59,55 +59,55 @@ include test/CMakeFiles/test.dir/flags.make
 
 test/CMakeFiles/test.dir/test.cc.o: test/CMakeFiles/test.dir/flags.make
 test/CMakeFiles/test.dir/test.cc.o: ../test/test.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/ubuntu/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test.dir/test.cc.o"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/test.cc.o -c /mnt/e/ubuntu/chat/test/test.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test.dir/test.cc.o"
+	cd /mnt/e/chat/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/test.cc.o -c /mnt/e/chat/test/test.cc
 
 test/CMakeFiles/test.dir/test.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/test.cc.i"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/ubuntu/chat/test/test.cc > CMakeFiles/test.dir/test.cc.i
+	cd /mnt/e/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/chat/test/test.cc > CMakeFiles/test.dir/test.cc.i
 
 test/CMakeFiles/test.dir/test.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/test.cc.s"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/ubuntu/chat/test/test.cc -o CMakeFiles/test.dir/test.cc.s
+	cd /mnt/e/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/chat/test/test.cc -o CMakeFiles/test.dir/test.cc.s
 
 test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o: test/CMakeFiles/test.dir/flags.make
 test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o: ../src/server/db/Redis.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/ubuntu/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o -c /mnt/e/ubuntu/chat/src/server/db/Redis.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o"
+	cd /mnt/e/chat/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o -c /mnt/e/chat/src/server/db/Redis.cpp
 
 test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/__/src/server/db/Redis.cpp.i"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/ubuntu/chat/src/server/db/Redis.cpp > CMakeFiles/test.dir/__/src/server/db/Redis.cpp.i
+	cd /mnt/e/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/chat/src/server/db/Redis.cpp > CMakeFiles/test.dir/__/src/server/db/Redis.cpp.i
 
 test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/__/src/server/db/Redis.cpp.s"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/ubuntu/chat/src/server/db/Redis.cpp -o CMakeFiles/test.dir/__/src/server/db/Redis.cpp.s
+	cd /mnt/e/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/chat/src/server/db/Redis.cpp -o CMakeFiles/test.dir/__/src/server/db/Redis.cpp.s
 
 test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o: test/CMakeFiles/test.dir/flags.make
 test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o: ../src/server/db/RedisConnPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/ubuntu/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o -c /mnt/e/ubuntu/chat/src/server/db/RedisConnPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o"
+	cd /mnt/e/chat/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o -c /mnt/e/chat/src/server/db/RedisConnPool.cpp
 
 test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.i"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/ubuntu/chat/src/server/db/RedisConnPool.cpp > CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.i
+	cd /mnt/e/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/chat/src/server/db/RedisConnPool.cpp > CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.i
 
 test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.s"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/ubuntu/chat/src/server/db/RedisConnPool.cpp -o CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.s
+	cd /mnt/e/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/chat/src/server/db/RedisConnPool.cpp -o CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.s
 
 test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o: test/CMakeFiles/test.dir/flags.make
 test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o: ../src/server/db/db.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/ubuntu/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/__/src/server/db/db.cpp.o -c /mnt/e/ubuntu/chat/src/server/db/db.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o"
+	cd /mnt/e/chat/build/test && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/__/src/server/db/db.cpp.o -c /mnt/e/chat/src/server/db/db.cpp
 
 test/CMakeFiles/test.dir/__/src/server/db/db.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/__/src/server/db/db.cpp.i"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/ubuntu/chat/src/server/db/db.cpp > CMakeFiles/test.dir/__/src/server/db/db.cpp.i
+	cd /mnt/e/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/chat/src/server/db/db.cpp > CMakeFiles/test.dir/__/src/server/db/db.cpp.i
 
 test/CMakeFiles/test.dir/__/src/server/db/db.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/__/src/server/db/db.cpp.s"
-	cd /mnt/e/ubuntu/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/ubuntu/chat/src/server/db/db.cpp -o CMakeFiles/test.dir/__/src/server/db/db.cpp.s
+	cd /mnt/e/chat/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/chat/src/server/db/db.cpp -o CMakeFiles/test.dir/__/src/server/db/db.cpp.s
 
 # Object files for target test
 test_OBJECTS = \
@@ -125,8 +125,8 @@ test_EXTERNAL_OBJECTS =
 ../bin/test: test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o
 ../bin/test: test/CMakeFiles/test.dir/build.make
 ../bin/test: test/CMakeFiles/test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/e/ubuntu/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../../bin/test"
-	cd /mnt/e/ubuntu/chat/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/e/chat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../../bin/test"
+	cd /mnt/e/chat/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 test/CMakeFiles/test.dir/build: ../bin/test
@@ -134,10 +134,10 @@ test/CMakeFiles/test.dir/build: ../bin/test
 .PHONY : test/CMakeFiles/test.dir/build
 
 test/CMakeFiles/test.dir/clean:
-	cd /mnt/e/ubuntu/chat/build/test && $(CMAKE_COMMAND) -P CMakeFiles/test.dir/cmake_clean.cmake
+	cd /mnt/e/chat/build/test && $(CMAKE_COMMAND) -P CMakeFiles/test.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/test.dir/clean
 
 test/CMakeFiles/test.dir/depend:
-	cd /mnt/e/ubuntu/chat/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/e/ubuntu/chat /mnt/e/ubuntu/chat/test /mnt/e/ubuntu/chat/build /mnt/e/ubuntu/chat/build/test /mnt/e/ubuntu/chat/build/test/CMakeFiles/test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/e/chat/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/e/chat /mnt/e/chat/test /mnt/e/chat/build /mnt/e/chat/build/test /mnt/e/chat/build/test/CMakeFiles/test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/test.dir/depend
 

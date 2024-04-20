@@ -199,6 +199,23 @@ void ChatService::groupChat(const TcpConnectionPtr &conn, nlohmann::json &js, Ti
     }
 }
 
+void ChatService::logout(const TcpConnectionPtr &conn, nlohmann::json &js, Timestamp timestamp)
+{
+    int userid = js["id"].get<int>();
+    {
+        std::lock_guard<std::mutex> lock(connMutex_);
+        auto it = userConns_.find(userid);
+        if(it != userConns_.end()) {
+            userConns_.erase(it);
+        }
+    }
+    redis_.unsubscribe(userid);   // 取消redis订阅
+    User user;
+    user.id = userid;
+    user.state = "offline";
+    userModel_.updateState(user); // 更新用户状态
+}
+
 void ChatService::closeClientException(const TcpConnectionPtr &conn)
 {
     User user;
@@ -252,8 +269,9 @@ ChatService::ChatService()
     msgHandlers_.insert({CREATE_GROUP_MSG, std::bind(&ChatService::createGroup, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
     msgHandlers_.insert({ADD_GROUP_MSG, std::bind(&ChatService::addGroup, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
     msgHandlers_.insert({GROUP_CHAT_MSG, std::bind(&ChatService::groupChat, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
+    msgHandlers_.insert({LOGOUT_MSG, std::bind(&ChatService::logout, this,std::placeholders::_1,std::placeholders::_2,std::placeholders::_3)});
 
-    if(redis_.connect() && redis_.auth("0")) {
+    if(redis_.connect()) {
         redis_.initNotifyHandler(std::bind(&ChatService::redisSubscribeMessgaeHandler,this,std::placeholders::_1,std::placeholders::_2));
     }
 }

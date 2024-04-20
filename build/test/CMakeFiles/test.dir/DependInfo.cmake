@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/e/ubuntu/chat/src/server/db/Redis.cpp" "/mnt/e/ubuntu/chat/build/test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o"
-  "/mnt/e/ubuntu/chat/src/server/db/RedisConnPool.cpp" "/mnt/e/ubuntu/chat/build/test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o"
-  "/mnt/e/ubuntu/chat/src/server/db/db.cpp" "/mnt/e/ubuntu/chat/build/test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o"
-  "/mnt/e/ubuntu/chat/test/test.cc" "/mnt/e/ubuntu/chat/build/test/CMakeFiles/test.dir/test.cc.o"
+  "/mnt/e/chat/src/server/db/Redis.cpp" "/mnt/e/chat/build/test/CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o"
+  "/mnt/e/chat/src/server/db/RedisConnPool.cpp" "/mnt/e/chat/build/test/CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o"
+  "/mnt/e/chat/src/server/db/db.cpp" "/mnt/e/chat/build/test/CMakeFiles/test.dir/__/src/server/db/db.cpp.o"
+  "/mnt/e/chat/test/test.cc" "/mnt/e/chat/build/test/CMakeFiles/test.dir/test.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

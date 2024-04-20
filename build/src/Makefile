@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/e/ubuntu/chat
+CMAKE_SOURCE_DIR = /mnt/e/chat
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/e/ubuntu/chat/build
+CMAKE_BINARY_DIR = /mnt/e/chat/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/e/ubuntu/chat/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/ubuntu/chat/build/CMakeFiles /mnt/e/ubuntu/chat/build/src/CMakeFiles/progress.marks
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/ubuntu/chat/build/CMakeFiles 0
+	cd /mnt/e/chat/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/chat/build/CMakeFiles /mnt/e/chat/build/src/CMakeFiles/progress.marks
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/e/chat/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,17 +97,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/e/ubuntu/chat/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /mnt/e/chat/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/e/ubuntu/chat/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/e/chat/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -129,6 +129,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/e/ubuntu/chat/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/e/chat/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

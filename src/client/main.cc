@@ -551,22 +551,22 @@ void GroupChat(int clientfd, string str)
 //注销
 void LoginOut(int clientfd, string)
 {
-//     json js;
-//     js["msgid"] = LOGINOUT_MSG;
-//     js["id"] = g_current_user.id;
-//     string buffer = js.dump();
+    json js;
+    js["msgid"] = LOGOUT_MSG;
+    js["id"] = g_current_user.id;
+    string buffer = js.dump();
 
-//     string request = js.dump();
+    string request = js.dump();
 
-//     int len = send(clientfd, request.c_str(), strlen(request.c_str()) + 1, 0);
-//     if (len == -1)
-//     {
-//         cerr << "send grouochat msg error" << endl;
-//     }
-//     else
-//     {
-//         g_is_menu_running = false;
-//         g_current_friends_list.clear();
-//         g_current_group_list.clear();
-//     }
+    int len = send(clientfd, request.c_str(), strlen(request.c_str()) + 1, 0);
+    if (len == -1)
+    {
+        cerr << "send grouochat msg error" << endl;
+    }
+    else
+    {
+        g_is_menu_running = false;
+        g_current_friends_list.clear();
+        g_current_group_list.clear();
+    }
 }

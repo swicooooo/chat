@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/e/ubuntu/chat/src/server
+# Install script for directory: /mnt/e/chat/src/server
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

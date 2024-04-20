@@ -56,6 +56,9 @@
         "forward_list": "cpp",
         "map": "cpp",
         "iomanip": "cpp",
-        "valarray": "cpp"
-    }
+        "valarray": "cpp",
+        "set": "cpp",
+        "cinttypes": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/g++-9"
 }
