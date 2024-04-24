@@ -1,1 +1,0 @@
-/usr/bin/g++  -g -g  -rdynamic CMakeFiles/test.dir/test.cc.o CMakeFiles/test.dir/__/src/server/db/Redis.cpp.o CMakeFiles/test.dir/__/src/server/db/RedisConnPool.cpp.o CMakeFiles/test.dir/__/src/server/db/db.cpp.o  -o ../../bin/test  -lmymuduo -lpthread -lmysqlclient -lhiredis 
