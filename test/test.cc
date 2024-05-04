@@ -23,25 +23,19 @@
 #include <unistd.h>
 #include <chrono>
 
-// sw@DESKTOP:/mnt/e/chat/test$ ./a.out 
-// Round 1...
-// Round 1 complete. Elapsed time: 9.77365 seconds.
-// Round 2...
-// Round 2 complete. Elapsed time: 23.3654 seconds.
-// Round 3...
-// connect error
+//connection ------------------count is: 29161
 #define ROUNDS 5
 #define CONNECTIONS_PER_ROUND 100000
 void testConn()
 {
       for (int i = 0; i < ROUNDS; i++) {
         std::cout << "Round " << i + 1 << "...\n";
+        int clientfd[CONNECTIONS_PER_ROUND]={0};
         auto start_time = std::chrono::high_resolution_clock::now();
 
-        int clientfd;
         for (int j = 0; j < CONNECTIONS_PER_ROUND; j++) {
-            clientfd = socket(AF_INET, SOCK_STREAM, 0);
-            if (clientfd == -1) {
+            clientfd[i] = socket(AF_INET, SOCK_STREAM, 0);
+            if (clientfd[i] == -1) {
                 std::cerr << "create socket error" << std::endl;
                 exit(-1);
             }
@@ -52,9 +46,9 @@ void testConn()
             server.sin_port = htons(8000);
             server.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-            if (-1 == connect(clientfd, (sockaddr *)&server, sizeof(sockaddr_in))) {
+            if (-1 == connect(clientfd[i], (sockaddr *)&server, sizeof(sockaddr_in))) {
                 std::cout << "connect error" << std::endl;
-                close(clientfd);
+                close(clientfd[i]);
                 exit(-1);
             }
 
@@ -64,10 +58,8 @@ void testConn()
         }
         for (int j = 0; j < CONNECTIONS_PER_ROUND; j++)
         {
-            close(clientfd);
+            close(clientfd[i]);
         }
-        
-
         auto end_time = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed_time = end_time - start_time;
         std::cout << "Round " << i + 1 << " complete. Elapsed time: " << elapsed_time.count() << " seconds.\n";
