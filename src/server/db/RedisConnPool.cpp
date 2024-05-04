@@ -57,7 +57,6 @@ void RedisConnPool::close()
 RedisConnPool::RedisConnPool(std::size_t poolSize, const char *host, int port, const char *pwd)
     :stop_(false)
 {
-    std::printf("------------%s %d\n", host,port);
     for (size_t i = 0; i < poolSize_; i++) {
         // 创建redis context
         auto *context = redisConnect(host,port);

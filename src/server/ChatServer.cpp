@@ -2,6 +2,7 @@
 #include "ChatService.h"
 
 #include <json.hpp>
+#include <gperftools/tcmalloc.h>
 
 ChatServer::ChatServer(EventLoop *loop, const InetAddress &listenAddr, const std::string &nameArg)
     : server_(loop, listenAddr, nameArg),
@@ -12,8 +13,11 @@ ChatServer::ChatServer(EventLoop *loop, const InetAddress &listenAddr, const std
     server_.setThreadNum(4);    // 五个线程
 }
 
+int total = 0;
 void ChatServer::onConnection(const TcpConnectionPtr &conn)
 {
+    std::cout << "------------------count is: " << total++ << std::endl;
+
     if(!conn->connected()) {
         ChatService::getInstance()->closeClientException(conn);
         conn->shutdown();   // 关闭这条通信链接
@@ -22,8 +26,13 @@ void ChatServer::onConnection(const TcpConnectionPtr &conn)
 
 void ChatServer::onMessage(const TcpConnectionPtr &conn, Buffer *buffer, Timestamp timestamp)
 {
-    std::string data = buffer->retrieveAllAsString();
-    nlohmann::json json = nlohmann::json::parse(data);
+    // 使用内存池分配和回收buffer
+    void *ptr = tc_malloc(sizeof(std::string));
+    std::string* data = new(ptr)std::string();
+
+    *data = buffer->retrieveAllAsString();
+    nlohmann::json json = nlohmann::json::parse(*data);
+    tc_free(ptr);
     // 解耦网络模块和业务模块
     auto handler = ChatService::getInstance()->getHandler(json["msgid"].get<int>());
     handler(conn, json, timestamp);

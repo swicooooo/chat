@@ -4,4 +4,4 @@ aux_source_directory(./model MODEL_LIST)
 
 add_executable(chatServer ${SRC_LIST} ${DB_LIST} ${MODEL_LIST})               # 指定生成可执行文件
 
-target_link_libraries(chatServer mymuduo pthread mysqlclient hiredis)    # 指定可执行文件需要依赖的库
+target_link_libraries(chatServer mymuduo pthread mysqlclient hiredis tcmalloc)    # 指定可执行文件需要依赖的库

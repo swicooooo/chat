@@ -1,22 +1,81 @@
-#include "Redis.h"
+// #include "Redis.h"
 
 #include <cassert>
 
 /// @brief 测试redis线程池
-void testRedisPool()
+// void testRedisPool()
+// {
+//     Redis redis;
+//     assert(redis.connect());
+//     assert(redis.set("blogwebsite","llfc.club"));
+//     std::string value="";
+//     assert(redis.get("blogwebsite", value) );
+//     assert(redis.existsKey("blogwebsite"));
+//     assert(redis.del("blogwebsite"));
+//     redis.close();
+// }
+
+#include <iostream>
+#include <cstring>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <chrono>
+
+// sw@DESKTOP:/mnt/e/chat/test$ ./a.out 
+// Round 1...
+// Round 1 complete. Elapsed time: 9.77365 seconds.
+// Round 2...
+// Round 2 complete. Elapsed time: 23.3654 seconds.
+// Round 3...
+// connect error
+#define ROUNDS 5
+#define CONNECTIONS_PER_ROUND 100000
+void testConn()
 {
-    Redis redis;
-    assert(redis.connect());
-    assert(redis.set("blogwebsite","llfc.club"));
-    std::string value="";
-    assert(redis.get("blogwebsite", value) );
-    assert(redis.existsKey("blogwebsite"));
-    assert(redis.del("blogwebsite"));
-    redis.close();
+      for (int i = 0; i < ROUNDS; i++) {
+        std::cout << "Round " << i + 1 << "...\n";
+        auto start_time = std::chrono::high_resolution_clock::now();
+
+        int clientfd;
+        for (int j = 0; j < CONNECTIONS_PER_ROUND; j++) {
+            clientfd = socket(AF_INET, SOCK_STREAM, 0);
+            if (clientfd == -1) {
+                std::cerr << "create socket error" << std::endl;
+                exit(-1);
+            }
+
+            sockaddr_in server;
+            memset(&server, 0, sizeof(sockaddr_in));
+            server.sin_family = AF_INET;
+            server.sin_port = htons(8000);
+            server.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+            if (-1 == connect(clientfd, (sockaddr *)&server, sizeof(sockaddr_in))) {
+                std::cout << "connect error" << std::endl;
+                close(clientfd);
+                exit(-1);
+            }
+
+            // Connection established, do something (e.g., send/recv data)
+            // For this example, we'll just close the connection
+            
+        }
+        for (int j = 0; j < CONNECTIONS_PER_ROUND; j++)
+        {
+            close(clientfd);
+        }
+        
+
+        auto end_time = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed_time = end_time - start_time;
+        std::cout << "Round " << i + 1 << " complete. Elapsed time: " << elapsed_time.count() << " seconds.\n";
+    }
 }
 
 int main(int argc, char const *argv[])
 {
-    testRedisPool();
+    testConn();
     return 0;
 }
